@@ -33,7 +33,7 @@ python -u run_longExp_F.py \
   --train_mode $m \
   --H_order $H_order \
   --base_T 144 \
-  --itr 1 --batch_size 32 --learning_rate 0.0005 >logs/weather_F_fin/$m'j_'$model_name'_'Weather_$seq_len'_'96'_H'$H_order.log
+  --itr 1 --batch_size 32 --learning_rate 0.0005 --individual >logs/weather_F_fin/$m'j_'$model_name'_'Weather_$seq_len'_'96'_H'$H_order.log
 
   echo "Done with $m'j_'$model_name'_'Weather_$seq_len'_'96'_H'$H_order.log"
 
@@ -52,7 +52,7 @@ python -u run_longExp_F.py \
   --train_mode $m \
   --H_order $H_order \
   --base_T 144 \
-  --itr 1 --batch_size 32 --learning_rate 0.0005 >logs/weather_F_fin/$m'j_'$model_name'_'Weather_$seq_len'_'192'_H'$H_order.log
+  --itr 1 --batch_size 32 --learning_rate 0.0005 --individual >logs/weather_F_fin/$m'j_'$model_name'_'Weather_$seq_len'_'192'_H'$H_order.log
 
   echo "Done with $m'j_'$model_name'_'Weather_$seq_len'_'192'_H'$H_order.log"
 
@@ -71,7 +71,7 @@ python -u run_longExp_F.py \
   --train_mode $m \
   --H_order $H_order \
   --base_T 144 \
-  --itr 1 --batch_size 32 --learning_rate 0.0005 >logs/weather_F_fin/$m'j_'$model_name'_'Weather_$seq_len'_'336'_H'$H_order.log
+  --itr 1 --batch_size 32 --learning_rate 0.0005 --individual >logs/weather_F_fin/$m'j_'$model_name'_'Weather_$seq_len'_'336'_H'$H_order.log
 
   echo "Done with $m'j_'$model_name'_'Weather_$seq_len'_'336'_H'$H_order.log"
 
@@ -90,7 +90,7 @@ python -u run_longExp_F.py \
   --train_mode $m \
   --H_order $H_order \
   --base_T 144 \
-  --itr 1 --batch_size 32 --learning_rate 0.0005 >logs/weather_F_fin/$m'j_'$model_name'_'Weather_$seq_len'_'720'_H'$H_order.log
+  --itr 1 --batch_size 32 --learning_rate 0.0005 --individual >logs/weather_F_fin/$m'j_'$model_name'_'Weather_$seq_len'_'720'_H'$H_order.log
 
   echo "Done with $m'j_'$model_name'_'Weather_$seq_len'_'720'_H'$H_order.log"
 
