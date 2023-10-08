@@ -22,12 +22,12 @@ class Real_FITS(nn.Module):
             self.freq_upsampler_real = nn.ModuleList()
             self.freq_upsampler_imag = nn.ModuleList()
             for i in range(self.channels):
-                self.freq_upsampler_real.append(nn.Linear(self.cut_freq-75, 275-75).to(torch.cfloat))
-                self.freq_upsampler_imag.append(nn.Linear(self.cut_freq-75, 275-75).to(torch.cfloat))
+                self.freq_upsampler_real.append(nn.Linear(self.cut_freq, int(self.cut_freq*self.length_ratio)))
+                self.freq_upsampler_imag.append(nn.Linear(self.cut_freq, int(self.cut_freq*self.length_ratio)))
 
         else:
-            self.freq_upsampler_real = nn.Linear(self.cut_freq-75, 275-75) # complex layer for frequency upcampling]
-            self.freq_upsampler_imag = nn.Linear(self.cut_freq-75, 275-75) # complex layer for frequency upcampling]
+            self.freq_upsampler_real = nn.Linear(self.cut_freq, int(self.cut_freq*self.length_ratio)) # complex layer for frequency upcampling]
+            self.freq_upsampler_imag = nn.Linear(self.cut_freq, int(self.cut_freq*self.length_ratio)) # complex layer for frequency upcampling]
         # pred_len=seq_len+pred_len
         # #self.Dlinear=DLinear.Model(configs)
         # pred_len=self.pred_len
