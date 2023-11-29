@@ -4,22 +4,24 @@ if [ ! -d "./logs" ]; then
     mkdir ./logs
 fi
 
-if [ ! -d "./logs/elec_F_fin_ind" ]; then
-    mkdir ./logs/elec_F_fin_ind
+if [ ! -d "./logs/FITS_ICLR/elec_F_fin" ]; then
+    mkdir ./logs/FITS_ICLR/elec_F_fin
 fi
 seq_len=700
 model_name=FITS
 
-for H_order in 5 8 10 12
+for H_order in 8 10
 do
-for seq_len in 90 180 360 720
+for seq_len in 720
 do
 for m in 1 2
 do
+for seed in 114 514 1919 810
+do
 
 
 
- python -u run_longExp_F.py \
+python -u run_longExp_F.py \
   --is_training 1 \
   --root_path ./dataset/ \
   --data_path electricity.csv \
@@ -33,11 +35,14 @@ do
   --des 'Exp' \
   --train_mode $m \
   --H_order $H_order \
-  --itr 1 --batch_size 32 --learning_rate 0.0005 --individual >logs/elec_F_fin_ind/$m'j_'$model_name'_'Electricity_$seq_len'_'96'_H'$H_order.log
+  --gpu 4 \
+  --seed $seed \
+  --itr 1 --batch_size 128 --learning_rate 0.0005 | tee logs/FITS_ICLR/elec_F_fin/$m'j_'$model_name'_'Electricity_$seq_len'_'96'_H'$H_order'_s'$seed.log
 
-    echo "Done with $m'j_'$model_name'_'Elec_$seq_len'_'96'_H'$H_order.log"
+  echo "Done with $m'j_'$model_name'_'Electricity_$seq_len'_'96'_H'$H_order'_s'$seed.log"
 
- python -u run_longExp_F.py \
+
+python -u run_longExp_F.py \
   --is_training 1 \
   --root_path ./dataset/ \
   --data_path electricity.csv \
@@ -51,11 +56,13 @@ do
   --des 'Exp' \
   --train_mode $m \
   --H_order $H_order \
-  --itr 1 --batch_size 32 --learning_rate 0.0005 --individual >logs/elec_F_fin_ind/$m'j_'$model_name'_'Electricity_$seq_len'_'192'_H'$H_order.log
+  --gpu 4 \
+  --seed $seed \
+  --itr 1 --batch_size 128 --learning_rate 0.0005 | tee logs/FITS_ICLR/elec_F_fin/$m'j_'$model_name'_'Electricity_$seq_len'_'192'_H'$H_order'_s'$seed.log
 
-    echo "Done with $m'j_'$model_name'_'Elec_$seq_len'_'96'_H'$H_order.log"
+  echo "Done with $m'j_'$model_name'_'Electricity_$seq_len'_'192'_H'$H_order'_s'$seed.log"
 
- python -u run_longExp_F.py \
+python -u run_longExp_F.py \
   --is_training 1 \
   --root_path ./dataset/ \
   --data_path electricity.csv \
@@ -69,11 +76,13 @@ do
   --des 'Exp' \
   --train_mode $m \
   --H_order $H_order \
-  --itr 1 --batch_size 32 --learning_rate 0.0005 --individual >logs/elec_F_fin_ind/$m'j_'$model_name'_'Electricity_$seq_len'_'336'_H'$H_order.log
+  --gpu 4 \
+  --seed $seed \
+  --itr 1 --batch_size 128 --learning_rate 0.0005 | tee logs/FITS_ICLR/elec_F_fin/$m'j_'$model_name'_'Electricity_$seq_len'_'336'_H'$H_order'_s'$seed.log
 
-    echo "Done with $m'j_'$model_name'_'Elec_$seq_len'_'96'_H'$H_order.log"
+  echo "Done with $m'j_'$model_name'_'Electricity_$seq_len'_'336'_H'$H_order'_s'$seed.log"
 
- python -u run_longExp_F.py \
+python -u run_longExp_F.py \
   --is_training 1 \
   --root_path ./dataset/ \
   --data_path electricity.csv \
@@ -87,11 +96,14 @@ do
   --des 'Exp' \
   --train_mode $m \
   --H_order $H_order \
-  --itr 1 --batch_size 32 --learning_rate 0.0005 --individual >logs/elec_F_fin_ind/$m'j_'$model_name'_'Electricity_$seq_len'_'720'_H'$H_order.log
+  --gpu 4 \
+  --seed $seed \
+  --itr 1 --batch_size 128 --learning_rate 0.0005 | tee logs/FITS_ICLR/elec_F_fin/$m'j_'$model_name'_'Electricity_$seq_len'_'720'_H'$H_order'_s'$seed.log
 
-    echo "Done with $m'j_'$model_name'_'Elec_$seq_len'_'96'_H'$H_order.log"
+  echo "Done with $m'j_'$model_name'_'Electricity_$seq_len'_'720'_H'$H_order'_s'$seed.log"
 
 
+done
 done
 done
 done

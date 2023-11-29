@@ -3,18 +3,20 @@ if [ ! -d "./logs" ]; then
     mkdir ./logs
 fi
 
-if [ ! -d "./logs/F_fin" ]; then
-    mkdir ./logs/F_fin
+if [ ! -d "./logs/FITS_ICLR/etth1_fin" ]; then
+    mkdir ./logs/FITS_ICLR/etth1_fin
 fi
 seq_len=700
 model_name=FITS
 
-for H_order in 5 4 3 2
+for H_order in 8 6 5 4
 do
-for seq_len in 90 180 360 720
+for seq_len in 720 360
 do
-for m in 0 1 2
+for m in 1 2
 do
+for seed in 114 514 1919 810
+do 
 
 python -u run_longExp_F.py \
   --is_training 1 \
@@ -30,7 +32,11 @@ python -u run_longExp_F.py \
   --des 'Exp' \
   --train_mode $m \
   --H_order $H_order \
-  --itr 1 --batch_size 32 --learning_rate 0.0005 >logs/F_fin/$m'_'$model_name'_'Etth1_$seq_len'_'96'_H'$H_order.log
+  --gpu 7 \
+  --seed $seed \
+  --itr 1 --batch_size 128 --learning_rate 0.0005 | tee logs/FITS_ICLR/etth1_fin/$m'_'$model_name'_'Etth1_$seq_len'_'96'_H'$H_order'_s'$seed.log
+
+  echo "Done $model_name'_'Etth1_$seq_len'_'96'_H'$H_order'_s'$seed"
 
 python -u run_longExp_F.py \
   --is_training 1 \
@@ -46,7 +52,11 @@ python -u run_longExp_F.py \
   --des 'Exp' \
   --train_mode $m \
   --H_order $H_order \
-  --itr 1 --batch_size 32 --learning_rate 0.0005 >logs/F_fin/$m'_'$model_name'_'Etth1_$seq_len'_'192'_H'$H_order.log
+  --gpu 7 \
+  --seed $seed \
+  --itr 1 --batch_size 128 --learning_rate 0.0005 | tee logs/FITS_ICLR/etth1_fin/$m'_'$model_name'_'Etth1_$seq_len'_'192'_H'$H_order'_s'$seed.log
+
+  echo "Done $model_name'_'Etth1_$seq_len'_'192'_H'$H_order'_s'$seed"
 
 python -u run_longExp_F.py \
   --is_training 1 \
@@ -62,7 +72,11 @@ python -u run_longExp_F.py \
   --des 'Exp' \
   --train_mode $m \
   --H_order $H_order \
-  --itr 1 --batch_size 32 --learning_rate 0.0005 >logs/F_fin/$m'_'$model_name'_'Etth1_$seq_len'_'336'_H'$H_order.log
+  --gpu 7 \
+  --seed $seed \
+  --itr 1 --batch_size 128 --learning_rate 0.0005 | tee logs/FITS_ICLR/etth1_fin/$m'_'$model_name'_'Etth1_$seq_len'_'336'_H'$H_order'_s'$seed.log
+
+  echo "Done $model_name'_'Etth1_$seq_len'_'336'_H'$H_order'_s'$seed"
 
 python -u run_longExp_F.py \
   --is_training 1 \
@@ -78,9 +92,15 @@ python -u run_longExp_F.py \
   --des 'Exp' \
   --train_mode $m \
   --H_order $H_order \
-  --itr 1 --batch_size 32 --learning_rate 0.0005 >logs/F_fin/$m'_'$model_name'_'Etth1_$seq_len'_'720'_H'$H_order.log
+  --gpu 7 \
+  --seed $seed \
+  --itr 1 --batch_size 128 --learning_rate 0.0005 | tee logs/FITS_ICLR/etth1_fin/$m'_'$model_name'_'Etth1_$seq_len'_'720'_H'$H_order'_s'$seed.log
+
+  echo "Done $model_name'_'Etth1_$seq_len'_'720'_H'$H_order'_s'$seed"
 
 
+
+done
 done
 done
 done

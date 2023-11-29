@@ -3,17 +3,19 @@ if [ ! -d "./logs" ]; then
     mkdir ./logs
 fi
 
-if [ ! -d "./logs/F_fin" ]; then
-    mkdir ./logs/F_fin
+if [ ! -d "./logs/FITS_ICLR/ettm2_fin" ]; then
+    mkdir ./logs/FITS_ICLR/ettm2_fin
 fi
 seq_len=700
 model_name=FITS
 
-for H_order in 8 6 4 12 10
+for H_order in 14 12 10 8
 do
-for seq_len in 90 180 360 720
+for seq_len in 720
 do
 for m in 1 2
+do
+for seed in 114 514 1919 810
 do
 
 python -u run_longExp_F.py \
@@ -31,7 +33,9 @@ python -u run_longExp_F.py \
   --train_mode $m \
   --H_order $H_order \
   --base_T 96 \
-  --itr 1 --batch_size 32 --learning_rate 0.0005 >logs/F_fin/$m'_'$model_name'_'Ettm2_$seq_len'_'96'_H'$H_order.log
+  --gpu 5 \
+  --seed $seed \
+  --itr 1 --batch_size 128 --learning_rate 0.0005 | tee logs/FITS_ICLR/ettm2_fin/$m'_'$model_name'_'Ettm2_$seq_len'_'96'_H'$H_order'_s'$seed.log
 
 python -u run_longExp_F.py \
   --is_training 1 \
@@ -48,7 +52,9 @@ python -u run_longExp_F.py \
   --train_mode $m \
   --H_order $H_order \
   --base_T 96 \
-  --itr 1 --batch_size 32 --learning_rate 0.0005 >logs/F_fin/$m'_'$model_name'_'Ettm2_$seq_len'_'192'_H'$H_order.log
+  --gpu 5 \
+  --seed $seed \
+  --itr 1 --batch_size 128 --learning_rate 0.0005 | tee logs/FITS_ICLR/ettm2_fin/$m'_'$model_name'_'Ettm2_$seq_len'_'192'_H'$H_order'_s'$seed.log
 
 python -u run_longExp_F.py \
   --is_training 1 \
@@ -65,7 +71,9 @@ python -u run_longExp_F.py \
   --train_mode $m \
   --H_order $H_order \
   --base_T 96 \
-  --itr 1 --batch_size 32 --learning_rate 0.0005 >logs/F_fin/$m'_'$model_name'_'Ettm2_$seq_len'_'336'_H'$H_order.log
+  --gpu 5 \
+  --seed $seed \
+  --itr 1 --batch_size 128 --learning_rate 0.0005 | tee logs/FITS_ICLR/ettm2_fin/$m'_'$model_name'_'Ettm2_$seq_len'_'336'_H'$H_order'_s'$seed.log
 
 python -u run_longExp_F.py \
   --is_training 1 \
@@ -82,9 +90,12 @@ python -u run_longExp_F.py \
   --train_mode $m \
   --H_order $H_order \
   --base_T 96 \
-  --itr 1 --batch_size 32 --learning_rate 0.0005 >logs/F_fin/$m'_'$model_name'_'Ettm2_$seq_len'_'720'_H'$H_order.log
+  --gpu 5 \
+  --seed $seed \
+  --itr 1 --batch_size 128 --learning_rate 0.0005 | tee logs/FITS_ICLR/ettm2_fin/$m'_'$model_name'_'Ettm2_$seq_len'_'720'_H'$H_order'_s'$seed.log
 
 
+done
 done
 done
 done
