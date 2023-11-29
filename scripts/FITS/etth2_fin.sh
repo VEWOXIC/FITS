@@ -15,8 +15,7 @@ for seq_len in 90 180 360 720
 do
 for m in 1
 do
-for seed in 114 514
-do 
+
 
 python -u run_longExp_F.py \
   --is_training 1 \
@@ -92,7 +91,6 @@ python -u run_longExp_F.py \
 
 
 
-done
 done
 done
 done

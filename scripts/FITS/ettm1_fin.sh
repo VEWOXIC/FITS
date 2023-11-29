@@ -9,7 +9,7 @@ fi
 seq_len=700
 model_name=FITS
 
-for H_order in 8 6 4 
+for H_order in 8 6 4 12 10
 do
 for seq_len in 90 180 360 720
 do
