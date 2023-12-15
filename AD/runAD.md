@@ -10,10 +10,14 @@ git clone https://github.com/thuml/Anomaly-Transformer.git
 ```bash
 cd Anomaly-Transformer
 ```
-- Move the files in this folder to the working directory and replace the existing one. 
+- Move the files in this folder to the working directory and replace the existing one.
+- 
 dataloader.py -> Anomaly-Transformer/data_provider/dataloader.py
+
 FITS.py -> Anomaly-Transformer/model/FITS.py
+
 main.py -> Anomaly-Transformer/main.py
+
 solver_recon.py -> Anomaly-Transformer/solver_recon.py
 
 - Run the scripts provided in this folder to conduct experiments.
