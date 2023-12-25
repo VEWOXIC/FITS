@@ -2,35 +2,30 @@
 
 This is the forecasting part of the FITS. Run the scripts in 'scripts/FITS' to get the results. We will further update the final scripts soon. 
 
-## ⚠⚠⚠Important Notice⚠⚠⚠ 2023-12-25🎄
+## 🚨 Important Update: 2023-12-25 🎄
 
-An anonymous researcher (we will acknowledge him/her later) finds a long standing bug in our code architecture which can be traced back to Informer (AAAI 2021 Best Paper). This bug affect a wide range of research work which include but not limit to:
+We've identified a significant bug in our code, originally found in Informer (AAAI 2021 Best Paper), thanks to an anonymous researcher (who will be credited later). This issue has implications for a broad spectrum of research, including but not limited to:
 
-- PatchTST (ICLR 2023) (https://github.com/yuqinie98/PatchTST/blob/main/PatchTST_supervised/data_provider/data_factory.py )
-- ~~TimesNet (ICLR 2023) (https://github.com/thuml/Time-Series-Library/blob/main/data_provider/data_factory.py)~~ [We later find that Timesnet set the batch_size as 1 during testing. Thus it is not affected by this bug.]
-- DLinear (AAAI 2022 reported version) (https://github.com/cure-lab/LTSF-Linear/commit/6fe4c28ff36b4228792f2bbe513e807577e4a57e)
-- Informer (AAAI 2021 Best Paper) (https://github.com/zhouhaoyi/Informer2020/blob/main/exp/exp_informer.py)
-- Autoformer (NIPS 2021 reported version) (https://github.com/thuml/Autoformer/commit/d9100709b04e3e8361170794eba4f47b1afb217f )
-- Fedformer (ICML 2022) (https://github.com/MAZiqing/FEDformer/blob/master/data_provider/data_factory.py )
-- FiLM (ICLR 2023) (https://github.com/tianzhou2011/FiLM/blob/main/data_provider/data_factory.py )
-- iTransformer (ICLR 2024 score: 8886) (https://github.com/thuml/iTransformer/blob/main/data_provider/data_factory.py)
+- PatchTST (ICLR 2023) - [Link to affected code](https://github.com/yuqinie98/PatchTST/blob/main/PatchTST_supervised/data_provider/data_factory.py)
+- TimesNet (ICLR 2023) - [Link to affected code](https://github.com/thuml/Time-Series-Library/blob/main/data_provider/data_factory.py) (Note: Not impacted due to specific batch size setting during testing)
+- DLinear (AAAI 2022 reported version) - [Link to affected code](https://github.com/cure-lab/LTSF-Linear/commit/6fe4c28ff36b4228792f2bbe513e807577e4a57e)
+- Informer (AAAI 2021 Best Paper) - [Link to affected code](https://github.com/zhouhaoyi/Informer2020/blob/main/exp/exp_informer.py)
+- Autoformer (NIPS 2021 reported version) - [Link to affected code](https://github.com/thuml/Autoformer/commit/d9100709b04e3e8361170794eba4f47b1afb217f)
+- Fedformer (ICML 2022) - [Link to affected code](https://github.com/MAZiqing/FEDformer/blob/master/data_provider/data_factory.py)
+- FiLM (ICLR 2023) - [Link to affected code](https://github.com/tianzhou2011/FiLM/blob/main/data_provider/data_factory.py)
+- iTransformer (ICLR 2024 score: 8886) - [Link to affected code](https://github.com/thuml/iTransformer/blob/main/data_provider/data_factory.py)
 
-We have been actively fixing this bug and rerun all our experiments. We will update the result on the arxiv and this repo. Also we will release a bug fix method for the community to fix their code and re-evaluate their work. 
+Efforts are underway to correct this bug, and we will update our Arxiv submission and this repository with the revised results. A bug fix method will also be released to assist the community in addressing this issue in their work.
 
-We and the anonymous friend hope the community can actively fix this long-standing problem together. 
+### Description of the Bug:
 
-### Bug:
+The bug stems from an incorrect implementation in the data loader. Specifically, the test dataloader uses `drop_last=True`, which may exclude a significant portion of test data, particularly with large batch sizes, leading to unfair model comparisons.
 
-The bug is caused by the incorrect implementation of the data loader. The test dataloader incorrectly use the drop_last=True, which may cause a large portion of test data being especially when the batch size is large. This may result in unfair comparison between different models with different batch size.
+### Solution:
 
-### Fix:
+To fix this issue in codebases using LSTF-Linear's architecture:
 
-For the codebase that uses the code architecture of LSTF-Linear(https://github.com/cure-lab/LTSF-Linear), please follow the following instruction to fix the bug:
-
-1. Modify the [data_factory.py](./data_provider/data_factory.py) in the data_provider folder. (mostly on line 19)
-   
-   
-    from
+1. In [data_factory.py](./data_provider/data_factory.py) within the data_provider folder (usually on line 19), change:
 
     ```python
     if flag == 'test':
@@ -40,7 +35,7 @@ For the codebase that uses the code architecture of LSTF-Linear(https://github.c
         freq = args.freq
     ```
 
-    to
+    To:
 
     ```python
     if flag == 'test':
@@ -50,20 +45,13 @@ For the codebase that uses the code architecture of LSTF-Linear(https://github.c
         freq = args.freq
     ```
 
-2. Modify the experiment script [./exp/exp_main.py](./exp/exp_main_F.py) or any experiment script that the model runs on (on around line 290)
+2. In your experiment script (e.g., [./exp/exp_main.py](./exp/exp_main_F.py)), modify the following (around line 290):
 
-    from
+    From:
     ```python
     preds = np.array(preds)
     trues = np.array(trues)
-    inputx = np.array(inputx) # some times there is not this line, it does not matter
-    ```
-
-    to
-    ```python
-    preds = np.concatenate(preds, axis=0)
-    trues = np.concatenate(trues, axis=0)
-    inputx = np.concatenate(inputx, axis=0) # if there is not that line, ignore this
+    inputx = np.array(inputx)
     ```
 
     If you do not do this, it will generate an error during testing because of the dimension 0 (batch_size) is not aligned. Maybe this is why everyone is dropping the last batch. But concatenate them on the 0 axis (batch_size) can solve this problem. 
@@ -90,21 +78,24 @@ For the codebase that uses the code architecture of LSTF-Linear(https://github.c
 | **FITS**  | **0.144**  | **0.188**   | **0.238**   | **0.308**   | *0.135*        | **0.149**       | **0.165**       | **0.204**       | *0.385*    | *0.397*     | *0.411*     | **0.449**   |
 | IMP       | 0.007      | 0.007       | 0.011       | 0.013       | -0.006         | 0               | 0.001           | 0.006           | -0.019     | -0.009      | -0.013      | 0.008       |
 
-## Analyze
+## Analysis
 
-This bug mainly affect the result on smaller dataset such as ETTh1 and ETTh2. On other datasets, the result even shows a better performance in some cases (e.g. PatchTST on ETTm1 and FITS on ).
+The discovered bug predominantly impacts results on smaller datasets like ETTh1 and ETTh2. Interestingly, for other datasets, certain models, such as PatchTST on ETTm1, demonstrate enhanced performance.
 
-### Reproduce
+### Replication
 
-- We have update the training script for FITS. Also the training log is uploaded for community to check. We also upload the log for other baselines. Note that these logs are get with the corresponding official codebases instead of the ones in this repo.
+- We have uploaded the training logs for community review. Additionally, we've provided logs for other baseline models. It's important to note that these logs were generated using their respective official codebases, not the versions in this repository.
 
-- We run other baselines with freshly cloned codebase and the provided hyperparameters. (DO NOT USE THE ONES IN THIS REPO FOR FAIRNESS) (We did not run TimesNet since it is not suffer from this issue, and we put it here for reference) 
+- We will update the training scripts of FITS very soon. 
 
-- Please fix the bug with the guidance and rerun the experiments.
+- For fairness, we have conducted baseline runs using freshly cloned codebases with the original hyperparameters. (Note: Avoid using versions from this repository.) TimesNet, which is unaffected by this issue, was not re-run and is mentioned here only for reference.
 
-(We change the learning rate of DLinear on ETTh2 from 0.05 to 0.005 for a better result. That is the only hyper-parameter we change. )
+- We encourage the community to apply the provided bug fix and re-conduct their experiments.
 
-(Kindly remind: the training of PatchTST can takes forever, especially on traffic and electricity dataset. )
+(A minor note: The only change we made in hyperparameters was reducing the learning rate for DLinear on ETTh2 from 0.05 to 0.005, resulting in improved outcomes.)
+
+(A word of caution: Training PatchTST, particularly on datasets like traffic and electricity, can be extremely time-consuming.)
+
 
 ## Notice
 
