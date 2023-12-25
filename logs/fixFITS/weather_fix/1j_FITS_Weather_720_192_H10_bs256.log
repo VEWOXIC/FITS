@@ -1,0 +1,144 @@
+Args in experiment:
+Namespace(H_order=10, ab=2, activation='gelu', aug_data_size=1, aug_method='NA', aug_rate=0.5, base_T=144, batch_size=512, c_out=7, checkpoints='./checkpoints/', cut_freq=70, d_ff=2048, d_layers=1, d_model=512, data='custom', data_path='weather.csv', data_size=1, dec_in=7, des='Exp', devices='0,1,2,3', distil=True, do_predict=False, dropout=0.05, e_layers=2, embed='timeF', embed_type=0, enc_in=21, factor=1, features='M', freq='h', gpu=3, groups=1, hidden_size=1, in_batch_augmentation=False, in_dataset_augmentation=False, individual=True, is_training=1, itr=1, kernel=5, label_len=48, learning_rate=0.0005, levels=3, loss='mse', lradj='type3', model='FITS', model_id='Weather_720_j192_H10', moving_avg=25, n_heads=8, num_workers=10, output_attention=False, patience=3, pred_len=192, root_path='./dataset/', seed=2021, seq_len=720, stacks=1, target='OT', test_flop=False, test_time_train=False, testset_div=2, train_epochs=50, train_mode=1, use_amp=False, use_gpu=True, use_multi_gpu=False)
+Use GPU: cuda:3
+>>>>>>>start training : Weather_720_j192_H10_FITS_custom_ftM_sl720_ll48_pl192_H10_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 35976
+val 5079
+test 10348
+Model(
+  (freq_upsampler): ModuleList(
+    (0): Linear(in_features=70, out_features=88, bias=True)
+    (1): Linear(in_features=70, out_features=88, bias=True)
+    (2): Linear(in_features=70, out_features=88, bias=True)
+    (3): Linear(in_features=70, out_features=88, bias=True)
+    (4): Linear(in_features=70, out_features=88, bias=True)
+    (5): Linear(in_features=70, out_features=88, bias=True)
+    (6): Linear(in_features=70, out_features=88, bias=True)
+    (7): Linear(in_features=70, out_features=88, bias=True)
+    (8): Linear(in_features=70, out_features=88, bias=True)
+    (9): Linear(in_features=70, out_features=88, bias=True)
+    (10): Linear(in_features=70, out_features=88, bias=True)
+    (11): Linear(in_features=70, out_features=88, bias=True)
+    (12): Linear(in_features=70, out_features=88, bias=True)
+    (13): Linear(in_features=70, out_features=88, bias=True)
+    (14): Linear(in_features=70, out_features=88, bias=True)
+    (15): Linear(in_features=70, out_features=88, bias=True)
+    (16): Linear(in_features=70, out_features=88, bias=True)
+    (17): Linear(in_features=70, out_features=88, bias=True)
+    (18): Linear(in_features=70, out_features=88, bias=True)
+    (19): Linear(in_features=70, out_features=88, bias=True)
+    (20): Linear(in_features=70, out_features=88, bias=True)
+  )
+)
+[INFO] Register count_linear() for <class 'torch.nn.modules.linear.Linear'>.
+FLOPs:  66232320.0
+params:  131208.0
+Trainable parameters:  131208
+!!!!!!!!!!!!!!learning rate!!!!!!!!!!!!!!!
+0.0005
+Epoch: 1 cost time: 18.475634574890137
+Epoch: 1, Steps: 70 | Train Loss: 0.7197973 Vali Loss: 0.5852518 Test Loss: 0.2523362
+Validation loss decreased (inf --> 0.585252).  Saving model ...
+Updating learning rate to 0.0005
+Epoch: 2 cost time: 19.091540813446045
+Epoch: 2, Steps: 70 | Train Loss: 0.5547663 Vali Loss: 0.5121060 Test Loss: 0.2251004
+Validation loss decreased (0.585252 --> 0.512106).  Saving model ...
+Updating learning rate to 0.000475
+Epoch: 3 cost time: 16.94732666015625
+Epoch: 3, Steps: 70 | Train Loss: 0.5038560 Vali Loss: 0.4870218 Test Loss: 0.2138635
+Validation loss decreased (0.512106 --> 0.487022).  Saving model ...
+Updating learning rate to 0.00045125
+Epoch: 4 cost time: 15.431756258010864
+Epoch: 4, Steps: 70 | Train Loss: 0.4813931 Vali Loss: 0.4718931 Test Loss: 0.2075938
+Validation loss decreased (0.487022 --> 0.471893).  Saving model ...
+Updating learning rate to 0.0004286875
+Epoch: 5 cost time: 16.178423166275024
+Epoch: 5, Steps: 70 | Train Loss: 0.4703848 Vali Loss: 0.4639966 Test Loss: 0.2033759
+Validation loss decreased (0.471893 --> 0.463997).  Saving model ...
+Updating learning rate to 0.00040725312499999993
+Epoch: 6 cost time: 16.52207112312317
+Epoch: 6, Steps: 70 | Train Loss: 0.4637685 Vali Loss: 0.4620462 Test Loss: 0.2004617
+Validation loss decreased (0.463997 --> 0.462046).  Saving model ...
+Updating learning rate to 0.0003868904687499999
+Epoch: 7 cost time: 17.487830877304077
+Epoch: 7, Steps: 70 | Train Loss: 0.4601240 Vali Loss: 0.4607069 Test Loss: 0.1982804
+Validation loss decreased (0.462046 --> 0.460707).  Saving model ...
+Updating learning rate to 0.00036754594531249993
+Epoch: 8 cost time: 17.76763129234314
+Epoch: 8, Steps: 70 | Train Loss: 0.4583979 Vali Loss: 0.4591404 Test Loss: 0.1966667
+Validation loss decreased (0.460707 --> 0.459140).  Saving model ...
+Updating learning rate to 0.00034916864804687486
+Epoch: 9 cost time: 17.798205375671387
+Epoch: 9, Steps: 70 | Train Loss: 0.4562874 Vali Loss: 0.4513364 Test Loss: 0.1952043
+Validation loss decreased (0.459140 --> 0.451336).  Saving model ...
+Updating learning rate to 0.00033171021564453113
+Epoch: 10 cost time: 19.028328895568848
+Epoch: 10, Steps: 70 | Train Loss: 0.4542938 Vali Loss: 0.4531867 Test Loss: 0.1940008
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00031512470486230455
+Epoch: 11 cost time: 20.47302532196045
+Epoch: 11, Steps: 70 | Train Loss: 0.4540828 Vali Loss: 0.4470122 Test Loss: 0.1929898
+Validation loss decreased (0.451336 --> 0.447012).  Saving model ...
+Updating learning rate to 0.00029936846961918935
+Epoch: 12 cost time: 20.15678381919861
+Epoch: 12, Steps: 70 | Train Loss: 0.4527826 Vali Loss: 0.4464369 Test Loss: 0.1921956
+Validation loss decreased (0.447012 --> 0.446437).  Saving model ...
+Updating learning rate to 0.0002844000461382298
+Epoch: 13 cost time: 20.412002563476562
+Epoch: 13, Steps: 70 | Train Loss: 0.4519179 Vali Loss: 0.4546704 Test Loss: 0.1914755
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0002701800438313183
+Epoch: 14 cost time: 19.419328451156616
+Epoch: 14, Steps: 70 | Train Loss: 0.4512173 Vali Loss: 0.4495184 Test Loss: 0.1908726
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0002566710416397524
+Epoch: 15 cost time: 20.33738350868225
+Epoch: 15, Steps: 70 | Train Loss: 0.4510131 Vali Loss: 0.4421961 Test Loss: 0.1902771
+Validation loss decreased (0.446437 --> 0.442196).  Saving model ...
+Updating learning rate to 0.00024383748955776477
+Epoch: 16 cost time: 20.49229145050049
+Epoch: 16, Steps: 70 | Train Loss: 0.4500827 Vali Loss: 0.4479073 Test Loss: 0.1897524
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0002316456150798765
+Epoch: 17 cost time: 19.259677171707153
+Epoch: 17, Steps: 70 | Train Loss: 0.4494137 Vali Loss: 0.4463102 Test Loss: 0.1893839
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00022006333432588268
+Epoch: 18 cost time: 19.31907868385315
+Epoch: 18, Steps: 70 | Train Loss: 0.4492883 Vali Loss: 0.4462658 Test Loss: 0.1890383
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : Weather_720_j192_H10_FITS_custom_ftM_sl720_ll48_pl192_H10_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 10348
+mse:0.19538050889968872, mae:0.24843667447566986, rse:0.5818469524383545, corr:[0.46737158 0.47415978 0.47724348 0.4771303  0.4752278  0.47314727
+ 0.47193602 0.47181287 0.47236148 0.47294617 0.4730621  0.47252744
+ 0.4714202  0.47006994 0.46892118 0.46816835 0.46788862 0.46781412
+ 0.46772525 0.46732768 0.46655867 0.46546736 0.46427447 0.46313262
+ 0.46220878 0.46154684 0.46106973 0.46060053 0.46003336 0.45923528
+ 0.45825657 0.4572249  0.45636943 0.45575446 0.45545545 0.4553273
+ 0.45529246 0.45513985 0.45476568 0.45413625 0.4533443  0.4525379
+ 0.4518286  0.45126644 0.4508486  0.45049417 0.4501723  0.4497922
+ 0.44919586 0.44844478 0.4476349  0.4467549  0.44599456 0.44539306
+ 0.44498914 0.44470558 0.44446802 0.44419223 0.4438555  0.44344977
+ 0.44299006 0.4424906  0.44201404 0.44162285 0.4413157  0.44109482
+ 0.44088432 0.44065043 0.4403792  0.44006792 0.43975434 0.43935898
+ 0.43900958 0.43871543 0.43843758 0.438187   0.4379372  0.43771565
+ 0.4374698  0.4372068  0.43699935 0.4368209  0.43661103 0.43639788
+ 0.43620494 0.43601358 0.43581995 0.43551213 0.43519264 0.43485388
+ 0.43458307 0.4344244  0.43432394 0.434313   0.43437228 0.43442276
+ 0.43439826 0.43427154 0.43401834 0.43369627 0.43335173 0.43303302
+ 0.43276924 0.4325402  0.43233782 0.43214354 0.43188655 0.4316032
+ 0.4312561  0.43092716 0.43062285 0.43033913 0.43005866 0.4298649
+ 0.42972454 0.4295686  0.42939696 0.4291926  0.42892158 0.42855516
+ 0.42819595 0.42786136 0.4275585  0.42732063 0.4271419  0.4270005
+ 0.42683336 0.42658222 0.42626205 0.4259025  0.4255196  0.4251622
+ 0.42488214 0.42466778 0.42455146 0.4244424  0.4243062  0.42412344
+ 0.42379284 0.42342764 0.42308316 0.42281523 0.4226054  0.42242175
+ 0.42226717 0.42210856 0.42194095 0.42173964 0.42143127 0.42098808
+ 0.4204538  0.41990024 0.4192944  0.41863307 0.4180201  0.41743958
+ 0.4170146  0.41656485 0.41616508 0.41583148 0.4155904  0.4153808
+ 0.41511264 0.4147758  0.4142995  0.41374427 0.41308162 0.41242135
+ 0.4118727  0.41149524 0.4112211  0.41091278 0.4104369  0.40976676
+ 0.408844   0.40779254 0.4067374  0.40595946 0.40561977 0.4057099
+ 0.40603077 0.40611067 0.40564066 0.4045308  0.40291777 0.40122783
+ 0.40014446 0.40030608 0.40165976 0.40295717 0.40236065 0.39755467]

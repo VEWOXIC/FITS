@@ -289,48 +289,48 @@ class Exp_Main(Exp_Basic):
         if self.args.test_flop:
             test_params_flop((batch_x.shape[1],batch_x.shape[2]))
             exit()
-        preds = np.array(preds)
-        trues = np.array(trues)
-        inputx = np.array(inputx)
-        reconx = np.array(reconx)
-        reconxy = np.array(reconxy)
-        inputxy = np.array(inputxy)
-        lows = np.array(lows)
+        preds = np.concatenate(preds, axis=0)
+        trues = np.concatenate(trues, axis=0)
+        # inputx = np.array(inputx)
+        # reconx = np.array(reconx)
+        # reconxy = np.array(reconxy)
+        # inputxy = np.array(inputxy)
+        # lows = np.array(lows)
 
 
-        preds = preds.reshape(-1, preds.shape[-2], preds.shape[-1])
-        trues = trues.reshape(-1, trues.shape[-2], trues.shape[-1])
-        inputx = inputx.reshape(-1, inputx.shape[-2], inputx.shape[-1])
-        reconx = reconx.reshape(-1, reconx.shape[-2], reconx.shape[-1])
-        reconxy = reconxy.reshape(-1, reconxy.shape[-2], reconxy.shape[-1])
-        inputxy = inputxy.reshape(-1, inputxy.shape[-2], inputxy.shape[-1])
-        lows = lows.reshape(-1, lows.shape[-2], lows.shape[-1])
+        # preds = preds.reshape(-1, preds.shape[-2], preds.shape[-1])
+        # trues = trues.reshape(-1, trues.shape[-2], trues.shape[-1])
+        # inputx = inputx.reshape(-1, inputx.shape[-2], inputx.shape[-1])
+        # reconx = reconx.reshape(-1, reconx.shape[-2], reconx.shape[-1])
+        # reconxy = reconxy.reshape(-1, reconxy.shape[-2], reconxy.shape[-1])
+        # inputxy = inputxy.reshape(-1, inputxy.shape[-2], inputxy.shape[-1])
+        # lows = lows.reshape(-1, lows.shape[-2], lows.shape[-1])
 
-        try: 
-            for i in range(0,2800,300):
+        # try: 
+        #     for i in range(0,2800,300):
                 
-                # create a figure with 3 subplots
-                fig, axs = plt.subplots(3, 1, figsize=(10, 10))
-                # plot pred and true in the first subplot
-                axs[0].plot(trues[i, :, -1], label='true')
-                axs[0].plot(preds[i, :, -1], label='pred')
-                axs[0].set_title('pred and true')
-                # plot inputx and reconx in the second subplot
-                axs[1].plot(inputx[i, :, -1], label='inputx')
-                axs[1].plot(reconx[i, :, -1], label='reconx')
-                axs[1].set_title('inputx and reconx')
-                # plot inputxy and reconxy in the third subplot
-                axs[2].plot(inputxy[i, :, -1], label='inputxy')
-                axs[2].plot(reconxy[i, :, -1], label='reconxy')
-                axs[2].plot(lows[i, :, -1])
-                axs[2].set_title('inputxy and reconxy')
-                # show the legend
-                plt.legend()
-                # save the figure to file
-                fig.savefig(os.path.join(folder_path, str(i) + '_F.png'))
-                # print('plottting')
-        except:
-            pass
+        #         # create a figure with 3 subplots
+        #         fig, axs = plt.subplots(3, 1, figsize=(10, 10))
+        #         # plot pred and true in the first subplot
+        #         axs[0].plot(trues[i, :, -1], label='true')
+        #         axs[0].plot(preds[i, :, -1], label='pred')
+        #         axs[0].set_title('pred and true')
+        #         # plot inputx and reconx in the second subplot
+        #         axs[1].plot(inputx[i, :, -1], label='inputx')
+        #         axs[1].plot(reconx[i, :, -1], label='reconx')
+        #         axs[1].set_title('inputx and reconx')
+        #         # plot inputxy and reconxy in the third subplot
+        #         axs[2].plot(inputxy[i, :, -1], label='inputxy')
+        #         axs[2].plot(reconxy[i, :, -1], label='reconxy')
+        #         axs[2].plot(lows[i, :, -1])
+        #         axs[2].set_title('inputxy and reconxy')
+        #         # show the legend
+        #         plt.legend()
+        #         # save the figure to file
+        #         fig.savefig(os.path.join(folder_path, str(i) + '_F.png'))
+        #         # print('plottting')
+        # except:
+        #     pass
 
         # result save
         folder_path = './results/' + setting + '/'
