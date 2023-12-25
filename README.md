@@ -96,9 +96,11 @@ This bug mainly affect the result on smaller dataset such as ETTh1 and ETTh2. On
 
 ### Reproduce
 
-We have update the training script for FITS. Also the training log is uploaded for community to check. We also upload the log for other baselines. Note that these logs are get with the corresponding official codebases instead of the ones in this repo.
+- We have update the training script for FITS. Also the training log is uploaded for community to check. We also upload the log for other baselines. Note that these logs are get with the corresponding official codebases instead of the ones in this repo.
 
-We run other baselines with freshly cloned codebase and the provided hyperparameters. (DO NOT USE THE ONES IN THIS REPO FOR FAIRNESS) (We did not run TimesNet since it is not suffer from this issue, and we put it here for reference) 
+- We run other baselines with freshly cloned codebase and the provided hyperparameters. (DO NOT USE THE ONES IN THIS REPO FOR FAIRNESS) (We did not run TimesNet since it is not suffer from this issue, and we put it here for reference) 
+
+- Please fix the bug with the guidance and rerun the experiments.
 
 (We change the learning rate of DLinear on ETTh2 from 0.05 to 0.005 for a better result. That is the only hyper-parameter we change. )
 
