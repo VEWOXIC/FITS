@@ -51,7 +51,14 @@ To fix this issue in codebases using LSTF-Linear's architecture:
     ```python
     preds = np.array(preds)
     trues = np.array(trues)
-    inputx = np.array(inputx)
+    inputx = np.array(inputx) # some times there is not this line, it does not matter
+    ```
+
+    To:
+    ```python
+    preds = np.concatenate(preds, axis=0)
+    trues = np.concatenate(trues, axis=0)
+    inputx = np.concatenate(inputx, axis=0) # if there is not that line, ignore this
     ```
 
     If you do not do this, it will generate an error during testing because of the dimension 0 (batch_size) is not aligned. Maybe this is why everyone is dropping the last batch. But concatenate them on the 0 axis (batch_size) can solve this problem. 
