@@ -7,7 +7,7 @@ This is the forecasting part of the FITS. Run the scripts in 'scripts/FITS' to g
 We've identified a significant bug in our code, originally found in Informer (AAAI 2021 Best Paper), thanks to an anonymous researcher (who will be credited later). This issue has implications for a broad spectrum of research on time series forecasting, including but not limited to:
 
 - PatchTST (ICLR 2023) - [Link to affected code](https://github.com/yuqinie98/PatchTST/blob/main/PatchTST_supervised/data_provider/data_factory.py)
-- ~~TimesNet (ICLR 2023) - [Link to affected code](https://github.com/thuml/Time-Series-Library/blob/main/data_provider/data_factory.py)~~ (Note: We later find TimesNet uses batch_size=1. Thus, it is not impacted by this issue.)
+- ~~TimesNet (ICLR 2023) - [Link to affected code](https://github.com/thuml/Time-Series-Library/blob/main/data_provider/data_factory.py)~~ (Note: We later find TimesNet uses batch_size=1 during testing. Thus, it is not impacted by this issue.)
 - DLinear (AAAI 2022 reported version) - [Link to affected code](https://github.com/cure-lab/LTSF-Linear/commit/6fe4c28ff36b4228792f2bbe513e807577e4a57e)
 - Informer (AAAI 2021 Best Paper) - [Link to affected code](https://github.com/zhouhaoyi/Informer2020/blob/main/exp/exp_informer.py)
 - Autoformer (NIPS 2021 reported version) - [Link to affected code](https://github.com/thuml/Autoformer/commit/d9100709b04e3e8361170794eba4f47b1afb217f)
