@@ -115,4 +115,4 @@ The discovered bug predominantly impacts results on smaller datasets like ETTh1 
 - We add a onnx implementation of FITS with the architecture of Real_FITS. ONNX is an open format built to represent machine learning models. It can be directly deploy on embedded system devices such as STM32. As far as we know, there is compatability issue on Cube AI with onnx opset17. 
 - **All the training scripts are updated!**
 - Files for anomaly detection are uploaded! Please check the instruction [here](./AD/runAD.md)
-- ⚠ **We find a long standing bug in our code which may affect a wide range of research work. Please check the [Notice](#notice) section for more information.** We have actively fixing this bug and rerun all our experiments as well as the baseline models we compared with. 
+- ⚠ **We find a long standing bug in our code which may affect a wide range of research work. Please check the [Notice](#notice) section for more information.** We have been actively fixing this bug and rerun all our experiments as well as the baseline models we compared with. 
