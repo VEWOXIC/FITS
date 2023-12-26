@@ -4,7 +4,7 @@ This is the forecasting part of the FITS. Run the scripts in 'scripts/FITS' to g
 
 ## 🚨 Important Update: 2023-12-25 🎄
 
-We've identified a significant bug in our code, originally found in Informer (AAAI 2021 Best Paper), thanks to an anonymous researcher (who will be credited later). This issue has implications for a broad spectrum of research, including but not limited to:
+We've identified a significant bug in our code, originally found in Informer (AAAI 2021 Best Paper), thanks to an anonymous researcher (who will be credited later). This issue has implications for a broad spectrum of research on time series forecasting, including but not limited to:
 
 - PatchTST (ICLR 2023) - [Link to affected code](https://github.com/yuqinie98/PatchTST/blob/main/PatchTST_supervised/data_provider/data_factory.py)
 - TimesNet (ICLR 2023) - [Link to affected code](https://github.com/thuml/Time-Series-Library/blob/main/data_provider/data_factory.py) (Note: Not impacted due to specific batch size setting during testing)
