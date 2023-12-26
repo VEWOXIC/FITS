@@ -13,7 +13,7 @@ We've identified a significant bug in our code, originally found in Informer (AA
 - Autoformer (NIPS 2021 reported version) - [Link to affected code](https://github.com/thuml/Autoformer/commit/d9100709b04e3e8361170794eba4f47b1afb217f)
 - Fedformer (ICML 2022) - [Link to affected code](https://github.com/MAZiqing/FEDformer/blob/master/data_provider/data_factory.py)
 - FiLM (ICLR 2023) - [Link to affected code](https://github.com/tianzhou2011/FiLM/blob/main/data_provider/data_factory.py)
-- iTransformer (ICLR 2024 score: 8886) - [Link to affected code](https://github.com/thuml/iTransformer/blob/main/data_provider/data_factory.py)
+- ~~iTransformer (ICLR 2024 score: 8886) - [Link to affected code](https://github.com/thuml/iTransformer/blob/main/data_provider/data_factory.py)~~ (Note: We later find iTransformer uses batch_size=1 during testing. Thus, it is not impacted by this issue.)
 
 Efforts are underway to correct this bug, and we will update our Arxiv submission and this repository with the revised results. A bug fix method will also be released to assist the community in addressing this issue in their work.
 
