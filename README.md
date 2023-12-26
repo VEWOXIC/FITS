@@ -105,6 +105,8 @@ The discovered bug predominantly impacts results on smaller datasets like ETTh1 
 
 (A word of caution: Training PatchTST, particularly on datasets like traffic and electricity, can be extremely time-consuming.)
 
+(We failed to reproduce the FiLM result since it takes over 40GB GPU memory and over **1.5 hour per epoch** on an A800. Further, the provided scripts for ETTh1 and ETTh2 seems to have flaws, i.e. the 'modes1' parameter is set to 1032 in ETTh1 instead of the '32' in others, the train_epoch is 1 in ETTh2 which may result in a downgraded performance. Thus, we exclude FiLM in the following analysis since we can not ensure a fair comparison.)
+
 
 ## Notice
 
