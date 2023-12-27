@@ -89,7 +89,7 @@ The best result is in bold and the second best is in italic. The results are rep
 
 ## Analysis
 
-The discovered bug predominantly impacts results on smaller datasets like ETTh1 and ETTh2. Interestingly, for other datasets, certain models, such as PatchTST on ETTm1, demonstrate enhanced performance.
+The discovered bug predominantly impacts results on smaller datasets like ETTh1 and ETTh2. Interestingly, for other datasets, certain models, such as PatchTST on ETTm1, demonstrate enhanced performance. FITS still maintains its good enough and comparable-to-sota performance.
 
 ### Replication
 
