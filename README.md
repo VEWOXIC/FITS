@@ -97,7 +97,8 @@ The discovered bug predominantly impacts results on smaller datasets like ETTh1 
 
 - We have uploaded the training logs for community review. Additionally, we've provided logs for other baseline models. It's important to note that these logs were generated using their respective official codebases, not the versions in this repository.
 
-- We will update the training scripts of FITS very soon. 
+- ~~We will update the training scripts of FITS very soon.~~
+- We Have update the training scripts. 
 
 - For fairness, we have conducted baseline runs using freshly cloned codebases with the original hyperparameters. (Note: Avoid using versions from this repository.) TimesNet, which is unaffected by this issue, was not re-run and is mentioned here only for reference.
 
@@ -107,13 +108,13 @@ The discovered bug predominantly impacts results on smaller datasets like ETTh1 
 
 (A word of caution: Training PatchTST, particularly on datasets like traffic and electricity, can be extremely time-consuming.)
 
-(We failed to reproduce the FiLM result since it takes over 40GB GPU memory and over **1.5 hour per epoch** on an A800. Further, the provided scripts seems to have flaws, i.e. the 'modes1' parameter is set to 1032 in ETTh1 instead of the '32' in others, the train_epoch is 1 in ETTh2 which may result in a downgraded performance. Thus, we exclude FiLM in the following analysis since we can not ensure a fair comparison.)
+(We failed to reproduce the FiLM result since it takes over 40GB GPU memory and over **2 hour per epoch** on an A800. Further, the provided scripts seems to have flaws, i.e. the 'modes1' parameter is set to 1032 in ETTh1 instead of the '32' in others, the train_epoch is 1 in ETTh2 which may result in a downgraded performance. Thus, we exclude FiLM in the following analysis since we can not ensure a fair comparison.)
 
 
 ## Notice
 
 - ~~**FITS benefits from large batch size. Our latest version uses batch size of 128.** Some results are not updated due to limited time.~~
-- Please run the scripts for ETT datasets with _fin.
+- ~~Please run the scripts for ETT datasets with _fin.~~
 
 ## Update
 - We add a notebook for interpretability. We analyze FITS on synthetic datasets to show its capability of modeling sinusodial waves. 
