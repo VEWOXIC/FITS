@@ -2,6 +2,8 @@
 
 This is the forecasting part of the FITS. Run the scripts in 'scripts/FITS' to get the results. We will further update the final scripts soon. 
 
+See updates here: [Update](#update)
+
 ## 🚨 Important Update: 2023-12-25 🎄
 
 We've identified a significant bug in our code, originally found in Informer (AAAI 2021 Best Paper), thanks to an anonymous researcher (who will be credited later). This issue has implications for a broad spectrum of research on time series forecasting, including but not limited to:
@@ -67,7 +69,7 @@ To fix this issue in codebases using LSTF-Linear's architecture:
 
 ## Result Update
 
-The best result is in bold and the second best is in italic. The results are reported in terms of MSE. ~~**This is still preliminary results for FITS. We are rerunning the parameter search, ablation study and multi-runs for the final results. The final results will be updated in the paper.**~~
+The best result is in bold and the second best is in italic. The results are reported in terms of MSE. ~~This is still preliminary results for FITS. We are rerunning the parameter search, ablation study and multi-runs for the final results. The final results will be updated in the paper.~~ Following are our final results. We have updated the arxiv version of paper and will update the ICLR final version soon.
 
 | Model     | ETTh1-96  | ETTh1-192 | ETTh1-336 | ETTh1-720 | ETTh2-96  | ETTh2-192 | ETTh2-336 | ETTh2-720 | ETTm1-96  | ETTm1-192 | ETTm1-336 | ETTm1-720 | ETTm2-96  | ETTm2-192 | ETTm2-336 | ETTm2-720 |
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
