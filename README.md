@@ -1,6 +1,6 @@
 # FITS: Modeling Time Series with 10k parameters
 
-This is the official implementation of FITS. Please fun the scripts in scripts\FITS for results. Scripts without `_best` are for ablation study and grid search for parameters. Scripts with `_best` are for multiple run on the optimal parameters.
+This is the official implementation of FITS. Please run the scripts in scripts\FITS for results. Scripts without `_best` are for ablation study and grid search for parameters. Scripts with `_best` are for multiple run on the optimal parameters.
 
 See updates here: [Update](#update)
 
