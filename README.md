@@ -1,6 +1,6 @@
 # FITS: Modeling Time Series with 10k parameters
 
-This is the forecasting part of the FITS. Run the scripts in 'scripts/FITS' to get the results. We will further update the final scripts soon. 
+This is the official implementation of FITS. Please fun the scripts in scripts\FITS for results. Scripts without `_best` are for ablation study and grid search for parameters. Scripts with `_best` are for multiple run on the optimal parameters.
 
 See updates here: [Update](#update)
 
@@ -123,3 +123,4 @@ The discovered bug predominantly impacts results on smaller datasets like ETTh1 
 - Files for anomaly detection are uploaded! Please check the instruction [here](./AD/runAD.md)
 - ⚠ **We find a long standing bug in our code which may affect a wide range of research work. Please check the Important Notice section for more information.** We have been actively fixing this bug and rerun all our experiments as well as the baseline models we compared with. 
 - We have updated the final results of FITS in this repo. Also, the arxiv version of paper is updated. 
+- The experiment scripts are updated and logs for FITS are updated. 
