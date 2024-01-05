@@ -67,25 +67,25 @@ To fix this issue in codebases using LSTF-Linear's architecture:
 
 ## Result Update
 
-The best result is in bold and the second best is in italic. The results are reported in terms of MSE. **This is still preliminary results for FITS. We are rerunning the parameter search, ablation study and multi-runs for the final results. The final results will be updated in the paper.**
+The best result is in bold and the second best is in italic. The results are reported in terms of MSE. ~~**This is still preliminary results for FITS. We are rerunning the parameter search, ablation study and multi-runs for the final results. The final results will be updated in the paper.**~~
 
 | Model     | ETTh1-96  | ETTh1-192 | ETTh1-336 | ETTh1-720 | ETTh2-96  | ETTh2-192 | ETTh2-336 | ETTh2-720 | ETTm1-96  | ETTm1-192 | ETTm1-336 | ETTm1-720 | ETTm2-96  | ETTm2-192 | ETTm2-336 | ETTm2-720 |
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
-| PatchTST  | 0.385     | *0.413*   | *0.44*    | *0.456*   | *0.274*   | *0.338*   | *0.367*   | *0.391*   | **0.292** | **0.33**  | **0.365** | *0.419*   | **0.163** | *0.219*   | *0.276*   | *0.368*   |
+| PatchTST  | 0.385     | *0.413*   | *0.44*    | *0.456*   | *0.274*   | *0.338*   | *0.367*   | *0.391*   | **0.292** | **0.33**  | **0.365** | *0.419*   | *0.163* | *0.219*   | *0.276*   | *0.368*   |
 | Dlinear   | 0.384     | 0.443     | 0.446     | 0.504     | 0.282     | 0.350     | 0.414     | 0.588     | *0.301*   | *0.335*   | 0.371     | 0.426     | 0.171     | 0.237     | 0.294     | 0.426     |
-| FedFormer | **0.375** | 0.427     | 0.459     | 0.484     | 0.340     | 0.433     | 0.508     | 0.480     | 0.362     | 0.393     | 0.442     | 0.483     | 0.189     | 0.256     | 0.326     | 0.437     |
+| FedFormer | *0.375* | 0.427     | 0.459     | 0.484     | 0.340     | 0.433     | 0.508     | 0.480     | 0.362     | 0.393     | 0.442     | 0.483     | 0.189     | 0.256     | 0.326     | 0.437     |
 | TimesNet  | 0.384     | 0.436     | 0.491     | 0.521     | 0.340     | 0.402     | 0.452     | 0.462     | 0.338     | 0.374     | 0.410     | 0.478     | 0.187     | 0.249     | 0.321     | 0.408     |
-| FITS      | **0.375** | **0.407** | **0.430** | **0.427** | **0.271** | **0.331** | **0.354** | **0.378** | 0.309     | 0.338     | *0.366*   | **0.414** | **0.163** | **0.217** | **0.268** | **0.349** |
-| IMP       | 0.000     | 0.006     | 0.010     | 0.029     | 0.003     | 0.007     | 0.013     | 0.013     | -0.017    | -0.008    | -0.001    | 0.005     | 0.000     | 0.002     | 0.008     | 0.019     |
+| FITS      | **0.372** | **0.404** | **0.427** | **0.424** | **0.271** | **0.331** | **0.354** | **0.377** | 0.303     | 0.337     | *0.366*   | **0.415** | **0.162** | **0.216** | **0.268** | **0.348** |
+| IMP       | 0.003     | 0.009     | 0.013     | 0.032     | 0.003     | 0.007     | 0.013     | 0.014     | -0.011    | -0.007    | -0.001    | 0.004     | 0.001     | 0.003     | 0.008     | 0.020     |
 
 | Model     | Weather-96 | Weather-192 | Weather-336 | Weather-720 | Electricity-96 | Electricity-192 | Electricity-336 | Electricity-720 | Traffic-96 | Traffic-192 | Traffic-336 | Traffic-720 |
 | --------- | ---------- | ----------- | ----------- | ----------- | -------------- | --------------- | --------------- | --------------- | ---------- | ----------- | ----------- | ----------- |
 | PatchTST  | *0.151*    | *0.195*     | *0.249*     | *0.321*     | **0.129**      | **0.149**       | *0.166*         | 0.210           | **0.366**  | **0.388**   | **0.398**   | *0.457*     |
-| Dlinear   | 0.174      | 0.217       | 0.262       | 0.332       | 0.140          | 0.153           | 0.169           | **0.204**       | 0.413      | 0.423       | 0.437       | 0.466       |
+| Dlinear   | 0.174      | 0.217       | 0.262       | 0.332       | 0.140          | 0.153           | 0.169           | *0.204*       | 0.413      | 0.423       | 0.437       | 0.466       |
 | Fedformer | 0.246      | 0.292       | 0.378       | 0.447       | 0.188          | 0.197           | 0.212           | 0.244           | 0.573      | 0.611       | 0.621       | 0.630       |
 | TimesNet  | 0.172      | 0.219       | 0.280       | 0.365       | 0.168          | 0.184           | 0.198           | 0.220           | 0.593      | 0.617       | 0.629       | 0.640       |
-| **FITS**  | **0.144**  | **0.188**   | **0.238**   | **0.308**   | *0.135*        | **0.149**       | **0.165**       | **0.204**       | *0.385*    | *0.397*     | *0.411*     | **0.449**   |
-| IMP       | 0.007      | 0.007       | 0.011       | 0.013       | -0.006         | 0.000           | 0.001           | 0.000           | -0.019     | -0.009      | -0.013      | 0.008       |
+| **FITS**  | **0.143**  | **0.186**   | **0.236**   | **0.307**   | *0.134*        | **0.149**       | **0.165**       | **0.203**       | *0.385*    | *0.397*     | *0.410*     | **0.448**   |
+| IMP       | 0.008      | 0.009       | 0.013       | 0.014       | -0.005         | 0.000           | 0.001           | 0.001           | -0.019     | -0.009      | -0.012      | 0.009       |
 
 ## Analysis
 
@@ -120,3 +120,4 @@ The discovered bug predominantly impacts results on smaller datasets like ETTh1 
 - **All the training scripts are updated!**
 - Files for anomaly detection are uploaded! Please check the instruction [here](./AD/runAD.md)
 - ⚠ **We find a long standing bug in our code which may affect a wide range of research work. Please check the Important Notice section for more information.** We have been actively fixing this bug and rerun all our experiments as well as the baseline models we compared with. 
+- We have updated the final results of FITS in this repo. Also, the arxiv version of paper is updated. 
