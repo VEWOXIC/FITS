@@ -80,7 +80,7 @@ class Exp_Main(Exp_Basic):
                 dec_inp = torch.zeros_like(batch_y[:, -self.args.pred_len:, :]).float()
                 dec_inp = torch.cat([batch_y[:, :self.args.label_len, :], dec_inp], dim=1).float().to(self.device)
                 # encoder - decoder
-                if 'Linear' in self.args.model:
+                if 'FITS' in self.args.model:
                     outputs, low = self.model(batch_x)
                 elif 'SCINet' in self.args.model:
                     outputs = self.model(batch_x)
@@ -164,7 +164,7 @@ class Exp_Main(Exp_Basic):
                 dec_inp = torch.cat([batch_y[:, :self.args.label_len, :], dec_inp], dim=1).float().to(self.device)
 
                 # encoder - decoder
-                if 'Linear' in self.args.model:
+                if 'FITS' in self.args.model:
                         outputs, low = self.model(batch_x)
                 elif 'SCINet' in self.args.model:
                         outputs = self.model(batch_x)
@@ -251,7 +251,7 @@ class Exp_Main(Exp_Basic):
                 dec_inp = torch.cat([batch_y[:, :self.args.label_len, :], dec_inp], dim=1).float().to(self.device)
                 # encoder - decoder
                 
-                if 'Linear' in self.args.model:
+                if 'FITS' in self.args.model:
                         outputs, low = self.model(batch_x)
                 elif 'SCINet' in self.args.model:
                         outputs = self.model(batch_x)
