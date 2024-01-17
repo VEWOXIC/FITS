@@ -1,4 +1,4 @@
-# FITS: Modeling Time Series with 10k parameters
+# FITS: Modeling Time Series with 10k parameters (ICLR 2024 Spotlight)
 
 This is the official implementation of FITS. Please run the scripts in scripts\FITS for results. Scripts without `_best` are for ablation study and grid search for parameters. Scripts with `_best` are for multiple run on the optimal parameters.
 
@@ -6,7 +6,7 @@ See updates here: [Update](#update)
 
 ## 🚨 Important Update: 2023-12-25 🎄
 
-We've identified a significant bug in our code, originally found in Informer (AAAI 2021 Best Paper), thanks to an anonymous researcher (who will be credited later). This issue has implications for a broad spectrum of research on time series forecasting, including but not limited to:
+We've identified a significant bug in our code, originally found in Informer (AAAI 2021 Best Paper), thanks to an [Luke Nicholas Darlow](https://lukedarlow.com/) from the University of Edinburgh. This issue has implications for a broad spectrum of research on time series forecasting, including but not limited to:
 
 - PatchTST (ICLR 2023) - [Link to affected code](https://github.com/yuqinie98/PatchTST/blob/main/PatchTST_supervised/data_provider/data_factory.py)
 - ~~TimesNet (ICLR 2023) - [Link to affected code](https://github.com/thuml/Time-Series-Library/blob/main/data_provider/data_factory.py)~~ (Note: We later find TimesNet uses batch_size=1 during testing. Thus, it is not impacted by this issue.)
@@ -125,3 +125,8 @@ The discovered bug predominantly impacts results on smaller datasets like ETTh1 
 - ⚠ **We find a long standing bug in our code which may affect a wide range of research work. Please check the Important Notice section for more information.** We have been actively fixing this bug and rerun all our experiments as well as the baseline models we compared with. 
 - We have updated the final results of FITS in this repo. Also, the arxiv version of paper is updated. 
 - The experiment scripts are updated and logs for FITS are updated. 
+- FITS is accepted by ICLR 2024 as Spotlight presentation!!! We will update the new results in camera ready version. 
+
+## Acknowledgement
+
+We thank ***Luke Darlow*** from the University of Edinburgh who find the bug.
