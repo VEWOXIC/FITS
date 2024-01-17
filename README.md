@@ -6,7 +6,7 @@ See updates here: [Update](#update)
 
 ## 🚨 Important Update: 2023-12-25 🎄
 
-We've identified a significant bug in our code, originally found in Informer (AAAI 2021 Best Paper), thanks to an [Luke Nicholas Darlow](https://lukedarlow.com/) from the University of Edinburgh. This issue has implications for a broad spectrum of research on time series forecasting, including but not limited to:
+We've identified a significant bug in our code, originally found in Informer (AAAI 2021 Best Paper), thanks to [Luke Nicholas Darlow](https://lukedarlow.com/) from the University of Edinburgh. This issue has implications for a broad spectrum of research on time series forecasting, including but not limited to:
 
 - PatchTST (ICLR 2023) - [Link to affected code](https://github.com/yuqinie98/PatchTST/blob/main/PatchTST_supervised/data_provider/data_factory.py)
 - ~~TimesNet (ICLR 2023) - [Link to affected code](https://github.com/thuml/Time-Series-Library/blob/main/data_provider/data_factory.py)~~ (Note: We later find TimesNet uses batch_size=1 during testing. Thus, it is not impacted by this issue.)
