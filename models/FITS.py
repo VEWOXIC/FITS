@@ -52,7 +52,7 @@ class Model(nn.Module):
         low_specxy = torch.zeros([low_specxy_.size(0),int((self.seq_len+self.pred_len)/2+1),low_specxy_.size(2)],dtype=low_specxy_.dtype).to(low_specxy_.device)
         low_specxy[:,0:low_specxy_.size(1),:]=low_specxy_ # zero padding
         low_xy=torch.fft.irfft(low_specxy, dim=1)
-        low_xy=low_xy * self.length_ratio # compemsate the length change
+        low_xy=low_xy * self.length_ratio # energy compemsation for the length change
         # dom_x=x-low_x
         
         # dom_xy=self.Dlinear(dom_x)
