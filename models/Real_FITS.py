@@ -7,6 +7,10 @@ import models.NLinear as DLinear
 class Real_FITS(nn.Module):
 
     # FITS: Frequency Interpolation Time Series Forecasting
+    # This is the real value implementation of the original FITS. 
+    # Real_FITS simulates the complex value multiplication with two layer of real value linear layer following
+    # Y_real = X_real*W_real - X_imag * W_imag
+    # Y_imag = X_real*W_imag + X_imag * W_real
 
     def __init__(self, configs):
         super(Real_FITS, self).__init__()
