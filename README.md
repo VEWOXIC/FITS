@@ -110,6 +110,14 @@ The discovered bug predominantly impacts results on smaller datasets like ETTh1 
 
 (We failed to reproduce the FiLM result since it takes over 40GB GPU memory and over **2 hour per epoch** on an A800. Further, the provided scripts seems to have flaws, i.e. the 'modes1' parameter is set to 1032 in ETTh1 instead of the '32' in others, the train_epoch is 1 in ETTh2 which may result in a downgraded performance. Thus, we exclude FiLM in the following analysis since we can not ensure a fair comparison.)
 
+## 🚨 Another potential information leakage in previous AD works
+
+In previous anomaly detection works, anomaly threshold is calculated based on the test_set, see affected code in [Anomaly Transformer](https://github.com/thuml/Anomaly-Transformer/blob/b0ee470c8012bff857fb600462aec6209c4a18d9/solver.py#L254). Such setting may violate the assumption that the test_set should be unavailable before deploying the model. Such method may cause information leakage and cherrypicked result on the test_set. 
+
+As claimed in the paper, FITS directly uses the validation set for threshold selecting as indicated in [code](https://github.com/VEWOXIC/FITS/blob/3b64eaa6c66618013a0120bfb260485259a52cc4/AD/solver_recon.py#L244). 
+
+However, we still compare FITS with the results reported in their original paper which may have potential information leakage. And we encourage the community to reevaluate the affected methods for further reference. XD
+
 
 ## Notice
 
