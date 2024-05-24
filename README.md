@@ -4,6 +4,8 @@ This is the official implementation of FITS. Please run the scripts in scripts\F
 
 See updates here: [Update](#update)
 
+>>> Also see our exciting new work! https://arxiv.org/abs/2405.13522 <<<
+
 ## 🚨 Important Update: 2023-12-25 🎄
 
 We've identified a significant bug in our code, originally found in Informer (AAAI 2021 Best Paper), thanks to [Luke Nicholas Darlow](https://lukedarlow.com/) from the University of Edinburgh. This issue has implications for a broad spectrum of research on time series forecasting, including but not limited to:
