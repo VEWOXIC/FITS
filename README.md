@@ -4,7 +4,7 @@ This is the official implementation of FITS. Please run the scripts in scripts\F
 
 See updates here: [Update](#update)
 
->>> Also see our exciting new work! https://arxiv.org/abs/2405.13522 <<<
+Also see our exciting new work! "Beyond Trend and Periodicity: Guiding Time Series Forecasting with Textual Cues" https://arxiv.org/abs/2405.13522 <<<
 
 ## 🚨 Important Update: 2023-12-25 🎄
 
