@@ -6,7 +6,8 @@ See updates here: [Update](#update)
 
 ## Also see our exciting new work! 
 
-"Beyond Trend and Periodicity: Guiding Time Series Forecasting with Textual Cues" https://arxiv.org/abs/2405.13522 <<<
+"Beyond Trend and Periodicity: Guiding Time Series Forecasting with Textual Cues" [Paper](https://arxiv.org/abs/2405.13522) [Code](https://github.com/VEWOXIC/TGTSF) [Dataset](https://github.com/VEWOXIC/Weather-Captioned)
+
 
 ## 🚨 Important Update: 2023-12-25 🎄
 
