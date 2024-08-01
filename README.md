@@ -6,6 +6,8 @@ See updates here: [Update](#update)
 
 ## Also see our exciting new work! 
 
+Wanna see something beyond FITS? Check: 
+
 "Beyond Trend and Periodicity: Guiding Time Series Forecasting with Textual Cues" [Paper](https://arxiv.org/abs/2405.13522) [Code](https://github.com/VEWOXIC/TGTSF) [Dataset](https://github.com/VEWOXIC/Weather-Captioned)
 
 
