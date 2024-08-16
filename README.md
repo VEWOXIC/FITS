@@ -10,6 +10,17 @@ Wanna see something beyond FITS? Check:
 
 "Beyond Trend and Periodicity: Guiding Time Series Forecasting with Textual Cues" [Paper](https://arxiv.org/abs/2405.13522) [Code](https://github.com/VEWOXIC/TGTSF) [Dataset](https://github.com/VEWOXIC/Weather-Captioned)
 
+## Update
+- We add a notebook for interpretability. We analyze FITS on synthetic datasets to show its capability of modeling sinusodial waves. 
+- We add a model Real_FITS which use two linear layer to simulate the complex multiplication. This model can achieve the same result of FITS. Real_FITS can be used on devices that do not support complex number calculation (e.g. RTX4090). 
+- We add a onnx implementation of FITS with the architecture of Real_FITS. ONNX is an open format built to represent machine learning models. It can be directly deploy on embedded system devices such as STM32. As far as we know, there is compatability issue on Cube AI with onnx opset17. 
+- **All the training scripts are updated!**
+- Files for anomaly detection are uploaded! Please check the instruction [here](./AD/runAD.md)
+- ⚠ **We find a long standing bug in our code which may affect a wide range of research work. Please check the Important Notice section for more information.** We have been actively fixing this bug and rerun all our experiments as well as the baseline models we compared with. 
+- We have updated the final results of FITS in this repo. Also, the arxiv version of paper is updated. 
+- The experiment scripts are updated and logs for FITS are updated. 
+- FITS is accepted by **ICLR 2024 as Spotlight presentation**!!! We will update the new results in camera ready version. 
+
 
 ## 🚨 Important Update: 2023-12-25 🎄
 
@@ -130,17 +141,6 @@ However, we still compare FITS with the results reported in their original paper
 
 - ~~**FITS benefits from large batch size. Our latest version uses batch size of 128.** Some results are not updated due to limited time.~~
 - ~~Please run the scripts for ETT datasets with _fin.~~
-
-## Update
-- We add a notebook for interpretability. We analyze FITS on synthetic datasets to show its capability of modeling sinusodial waves. 
-- We add a model Real_FITS which use two linear layer to simulate the complex multiplication. This model can achieve the same result of FITS. Real_FITS can be used on devices that do not support complex number calculation (e.g. RTX4090). 
-- We add a onnx implementation of FITS with the architecture of Real_FITS. ONNX is an open format built to represent machine learning models. It can be directly deploy on embedded system devices such as STM32. As far as we know, there is compatability issue on Cube AI with onnx opset17. 
-- **All the training scripts are updated!**
-- Files for anomaly detection are uploaded! Please check the instruction [here](./AD/runAD.md)
-- ⚠ **We find a long standing bug in our code which may affect a wide range of research work. Please check the Important Notice section for more information.** We have been actively fixing this bug and rerun all our experiments as well as the baseline models we compared with. 
-- We have updated the final results of FITS in this repo. Also, the arxiv version of paper is updated. 
-- The experiment scripts are updated and logs for FITS are updated. 
-- FITS is accepted by ICLR 2024 as Spotlight presentation!!! We will update the new results in camera ready version. 
 
 ## Acknowledgement
 
