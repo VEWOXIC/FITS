@@ -4,7 +4,7 @@ import torch.nn.functional as F
 import numpy as np
 import models.NLinear as DLinear
 
-class Real_FITS(nn.Module):
+class Model(nn.Module):
 
     # FITS: Frequency Interpolation Time Series Forecasting
     # This is the real value implementation of the original FITS. 
@@ -13,7 +13,7 @@ class Real_FITS(nn.Module):
     # Y_imag = X_real*W_imag + X_imag * W_real
 
     def __init__(self, configs):
-        super(Real_FITS, self).__init__()
+        super(Model, self).__init__()
         self.seq_len = configs.seq_len
         self.pred_len = configs.pred_len
         self.individual = configs.individual
@@ -39,9 +39,9 @@ class Real_FITS(nn.Module):
 
     def forward(self, x):
         # RIN
-        x_mean = torch.mean(x, dim=2, keepdim=True)
+        x_mean = torch.mean(x, dim=1, keepdim=True)
         x = x - x_mean
-        x_var=torch.var(x, dim=2, keepdim=True)+ 1e-5
+        x_var=torch.var(x, dim=1, keepdim=True)+ 1e-5
         # print(x_var)
         x = x / torch.sqrt(x_var)
 
@@ -78,4 +78,4 @@ class Real_FITS(nn.Module):
         low_xy=low_xy * self.length_ratio # compemsate the length change
 
         xy=(low_xy) * torch.sqrt(x_var) +x_mean
-        return xy
+        return xy, 0
