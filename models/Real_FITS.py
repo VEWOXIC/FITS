@@ -67,7 +67,7 @@ class Real_FITS(nn.Module):
         low_specxy_R = torch.zeros([low_specxy_real.size(0),int((self.seq_len+self.pred_len)/2+1),low_specxy_real.size(2)],dtype=low_specxy_real.dtype).to(low_specxy_real.device)
         low_specxy_R[:,0:low_specxy_real.size(1),:]=low_specxy_real
 
-        low_specxy_I = torch.zeros([low_specxy_imag.size(0),int((self.output_len)/2+1),low_specxy_imag.size(2)],dtype=low_specxy_imag.dtype).to(low_specxy_imag.device)
+        low_specxy_I = torch.zeros([low_specxy_imag.size(0),int((self.seq_len+self.pred_len)/2+1),low_specxy_imag.size(2)],dtype=low_specxy_imag.dtype).to(low_specxy_imag.device)
         low_specxy_I[:,0:low_specxy_imag.size(1),:]=low_specxy_imag
 
         low_specxy = torch.complex(low_specxy_R, low_specxy_I)
