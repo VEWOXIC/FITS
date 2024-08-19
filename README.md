@@ -19,7 +19,8 @@ Wanna see something beyond FITS? Check:
 - ⚠ **We find a long standing bug in our code which may affect a wide range of research work. Please check the Important Notice section for more information.** We have been actively fixing this bug and rerun all our experiments as well as the baseline models we compared with. 
 - We have updated the final results of FITS in this repo. Also, the arxiv version of paper is updated. 
 - The experiment scripts are updated and logs for FITS are updated. 
-- FITS is accepted by **ICLR 2024 as Spotlight presentation**!!! We will update the new results in camera ready version. 
+- FITS is accepted by **ICLR 2024 as Spotlight presentation**!!! We will update the new results in camera ready version.
+- 2024-09-19 FITS reaches 100 GITHUB STARS!!! Thanks for the support and recognition of you guys! 🎉🎉🎉
 
 
 ## 🚨 Important Update: 2023-12-25 🎄
