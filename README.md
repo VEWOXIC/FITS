@@ -10,6 +10,8 @@ Wanna see something beyond FITS? Check:
 
 "Beyond Trend and Periodicity: Guiding Time Series Forecasting with Textual Cues" [Paper](https://arxiv.org/abs/2405.13522) [Code](https://github.com/VEWOXIC/TGTSF) [Dataset](https://github.com/VEWOXIC/Weather-Captioned)
 
+Check out our new time series forecasting pipeline: [Code](https://github.com/VEWOXIC/Universal-Cross-Modal-Time-Series-Forecasting-Pipeline). A DLinear-like framework that support multiple features such as multimodal dataset support, better model/dataset/task management, more readable data pipeline and torch-lightning capatability! 
+
 ## Update
 - We add a notebook for interpretability. We analyze FITS on synthetic datasets to show its capability of modeling sinusodial waves. 
 - We add a model Real_FITS which use two linear layer to simulate the complex multiplication. This model can achieve the same result of FITS. Real_FITS can be used on devices that do not support complex number calculation (e.g. RTX4090). 
